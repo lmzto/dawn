@@ -34,7 +34,18 @@
     </div>
   </div>
 </div>
+<div>
+  <h2>{{ collections.frontpage.title }}</h2>
 
+  {% for product in collections.frontpage.products -%}
+    <div>
+      <img src="{{ product.featured_image }}">
+      <h3>{{ product.title }}</h3>
+      <p>{{ product.price }}</p>
+    </div>
+    {{ product.title | link_to: product.url }}
+  {%- endfor %}
+</div>
 {% schema %}
 {
   "name": "t:sections.page.name",

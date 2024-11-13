@@ -129,7 +129,6 @@
         render 'header-search', input_id: 'Search-In-Modal-1'
       endif
     -%}
-
     {%- if section.settings.logo_position != 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
         <h1 class="header__heading">
@@ -279,6 +278,12 @@
         {%- endif -%}
       </a>
     </div>
+    <h1>{{ shop.name }}</h1>
+  <ul>
+    {% for link in linklists.main-menu.links -%}
+      <li>{{ link.title | link_to: link.url }}</li>
+    {%- endfor %}
+  </ul>
   </header>
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 
